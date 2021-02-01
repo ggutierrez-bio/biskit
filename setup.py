@@ -74,9 +74,9 @@ long_description = \
  Modeller."""
 
 def _remove_abs_path(filepath: str, abs_path: str) -> str:
-    return filepath[len(root_dir) + 1:] if filepath.find(root_dir) == 0 else filepath
+    return filepath[len(abs_path) + 1:] if filepath.find(root_dir) == 0 else filepath
 
-data_files = [_remove_abs_path(filepath) for filepath in data_files]
+data_files = [_remove_abs_path(filepath, root_dir) for filepath in data_files]
 
 
 setup(
