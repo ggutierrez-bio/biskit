@@ -73,11 +73,6 @@ long_description = \
  programs like Xplor, Amber, Hex, Prosa, T-Coffee, TMAlign, Reduce and
  Modeller."""
 
-def _remove_abs_path(filepath: str, abs_path: str) -> str:
-    return filepath[len(abs_path) + 1:] if filepath.find(root_dir) == 0 else filepath
-
-data_files = [_remove_abs_path(filepath, root_dir) for filepath in data_files]
-
 
 setup(
     name = "biskit",
@@ -93,7 +88,7 @@ setup(
     ## available on PyPi
     install_requires=['numpy', 'scipy', 'biopython'],
     packages = packages,
-    include_package_data=True,
+    include_package_data=False,
     data_files = data_files,
     scripts = ['scripts/bis.py'],
 
