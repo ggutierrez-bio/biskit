@@ -73,6 +73,11 @@ long_description = \
  programs like Xplor, Amber, Hex, Prosa, T-Coffee, TMAlign, Reduce and
  Modeller."""
 
+def _remove_abs_path(filepath: str, abs_path: str) -> str:
+    return filepath[len(root_dir) + 1:] if filepath.find(root_dir) == 0 else filepath
+
+data_files = [_remove_abs_path(filepath) for filepath in data_files]
+
 
 setup(
     name = "biskit",
