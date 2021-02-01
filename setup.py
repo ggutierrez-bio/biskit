@@ -14,6 +14,7 @@
 from setuptools import setup
 import os
 import sys
+from typing import Union, List
 
 # Compile the list of packages available, because distutils doesn't have
 # an easy way to do this.
